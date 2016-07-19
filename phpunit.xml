@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    backupGlobals               = "false"
+    backupStaticAttributes      = "false"
+    colors                      = "true"
+    convertErrorsToExceptions   = "true"
+    convertNoticesToExceptions  = "true"
+    convertWarningsToExceptions = "true"
+    processIsolation            = "false"
+    stopOnFailure               = "false"
+    stopOnError                 = "false"
+    stopOnIncomplete            = "false"
+    stopOnSkipped               = "false"
+    bootstrap                   = "vendor/autoload.php"
+    syntaxCheck                 = "true"
+    verbose                     = "true"
+    beStrictAboutTestsThatDoNotTestAnything = "true"
+    checkForUnintentionallyCoveredCode  = "false"
+    beStrictAboutOutputDuringTests      = "true"
+    beStrictAboutTestSize               = "true"
+        >
+
+    <php>
+        <const name="REDIS_TEST_SERVER" value="tcp://127.0.0.1:6379" />
+        <const name="MEMCACHED_TEST_SERVER" value="127.0.0.1:11211" />
+    </php>
+
+    <testsuites>
+        <testsuite name="All tests">
+            <directory suffix="Test.php" >./test/</directory>
+        </testsuite>
+    </testsuites>
+
+</phpunit>

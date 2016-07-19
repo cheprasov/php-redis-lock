@@ -1,0 +1,35 @@
+language: php
+php:
+  - '5.5'
+  - '5.6'
+  - '7.0'
+  - '7.1'
+  - hhvm
+
+matrix:
+  allow_failures:
+    - php: hhvm
+
+before_install:
+  - PHP_INI=~/.phpenv/versions/$(phpenv version-name)/etc/php.ini;
+  - |
+    if [[ $TRAVIS_PHP_VERSION =~ 5.[56] ]]; then
+      echo "extension = memcached.so" >> $PHP_INI;
+      phpenv config-rm xdebug.ini;
+    fi;
+  - |
+    if [[ $TRAVIS_PHP_VERSION =~ 7.[10] ]]; then
+      apt-get install -y php-memcached;
+      echo "extension = memcached.so" >> $PHP_INI;
+    fi;
+  - |
+    if [[ $TRAVIS_PHP_VERSION =~ 7.[0] ]]; then
+      phpenv config-rm xdebug.ini;
+    fi;
+
+install:
+  - composer install
+
+services:
+  - memcached
+  - redis
