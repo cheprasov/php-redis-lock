@@ -93,7 +93,7 @@ updateJsonInRedis($Redis, 'json-key', ['for' => 42, 'var' => 2016]);
 
 ## Methods
 
-#### RedisLock :: __construct ( `\Redis` **$Redis** , `string` **$key** [, `int` **$flags** = 0 ] )
+#### RedisLock :: __construct ( `RedisClient` **$Redis** , `string` **$key** [, `int` **$flags** = 0 ] )
 ---
 Create a new instance of RedisLock.
 
