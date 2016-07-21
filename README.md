@@ -99,7 +99,7 @@ Create a new instance of RedisLock.
 
 ##### Method Pameters
 
-1. \Redis **$Redis** - Instanse of [Redis](http://redis.io/)
+1. RedisClient **$Redis** - Instanse of [RedisClient](https://github.com/cheprasov/php-redis-client)
 2. string **$key** - name of key in Redis storage. Only locks with the same name will compete with each other for lock.
 3. int **$flags**, default = 0
    * `RedisLock::FLAG_CATCH_EXCEPTIONS` - use this flag, if you don't want catch exceptions by yourself. Do not use this flag, if you want have a full control on situation with locks. Default behavior without this flag - all Exceptions will be thrown.
