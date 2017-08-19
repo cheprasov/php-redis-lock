@@ -19,7 +19,7 @@ use RedisLock\Exception\LostLockException;
 
 class RedisLock implements LockInterface {
 
-    const VERSION = '1.0.1';
+    const VERSION = '1.0.2';
 
     /**
      * @deprecated
