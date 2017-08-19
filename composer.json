@@ -16,7 +16,7 @@
   },
   "require": {
     "php": ">=5.5",
-    "cheprasov/php-redis-client" : "~1.7"
+    "cheprasov/php-redis-client" : "^1.7.2"
   },
   "require-dev": {
     "phpunit/phpunit": "4.8.*",
