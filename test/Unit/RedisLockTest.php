@@ -68,16 +68,16 @@ class RedisLockTest extends \PHPUnit_Framework_TestCase {
         $RedisLock = new RedisLock($this->getRedis(), $key);
         $this->assertSame(false, $Method->invoke(
             $RedisLock,
-            RedisLock::FLAG_CATCH_EXCEPTIONS
+            RedisLock::FLAG_DO_NOT_THROW_EXCEPTIONS
         ));
 
         $RedisLock = new RedisLock(
             $this->getRedis(), $key,
-            RedisLock::FLAG_CATCH_EXCEPTIONS
+            RedisLock::FLAG_DO_NOT_THROW_EXCEPTIONS
         );
         $this->assertSame(true, $Method->invoke(
             $RedisLock,
-            RedisLock::FLAG_CATCH_EXCEPTIONS
+            RedisLock::FLAG_DO_NOT_THROW_EXCEPTIONS
         ));
     }
 

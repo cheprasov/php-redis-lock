@@ -22,9 +22,16 @@ class RedisLock implements LockInterface {
     const VERSION = '1.0.1';
 
     /**
+     * @deprecated
+     * @see FLAG_DO_NOT_THROW_EXCEPTIONS
      * Catch Lock exceptions and return false or null as result
      */
     const FLAG_CATCH_EXCEPTIONS = 1;
+
+    /**
+     * Do not throw exception, return false or null as result
+     */
+    const FLAG_DO_NOT_THROW_EXCEPTIONS = 1;
 
     /**
      * Sleep time between wait iterations, in seconds
