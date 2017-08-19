@@ -21,7 +21,7 @@ $Redis = ClientFactory::create([
  */
 function updateJsonInRedis(RedisClient $Redis, $key, array $array) {
     // Create new Lock instance
-    $Lock = new RedisLock($Redis, 'Lock_'.$key, RedisLock::FLAG_CATCH_EXCEPTIONS);
+    $Lock = new RedisLock($Redis, 'Lock_'.$key, RedisLock::FLAG_DO_NOT_THROW_EXCEPTIONS);
 
     // Acquire lock for 2 sec.
     // If lock has acquired in another thread then we will wait 3 second,
