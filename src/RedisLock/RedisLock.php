@@ -105,7 +105,7 @@ class RedisLock implements LockInterface {
         $this->flags = (int) $flags;
 
         $this->token = $this->createToken();
-        $this->catchExceptions = $this->isFlagExist(self::FLAG_CATCH_EXCEPTIONS);
+        $this->catchExceptions = $this->isFlagExist(self::FLAG_DO_NOT_THROW_EXCEPTIONS);
     }
 
     /**
