@@ -2,7 +2,7 @@
 [![Latest Stable Version](https://poser.pugx.org/cheprasov/php-redis-lock/v/stable)](https://packagist.org/packages/cheprasov/php-redis-lock)
 [![Total Downloads](https://poser.pugx.org/cheprasov/php-redis-lock/downloads)](https://packagist.org/packages/cheprasov/php-redis-lock)
 
-# RedisLock v1.0.1 for PHP >= 5.5
+# RedisLock v1.0.2 for PHP >= 5.5
 
 ## About
 RedisLock for PHP is a synchronization mechanism for enforcing limits on access to a resource in an environment where there are many threads of execution. A lock is designed to enforce a mutual exclusion concurrency control policy. Based on [redis](http://redis.io/).
@@ -57,7 +57,7 @@ $Redis = ClientFactory::create([
  */
 function updateJsonInRedis(RedisClient $Redis, $key, array $array) {
     // Create new Lock instance
-    $Lock = new RedisLock($Redis, 'Lock_'.$key, RedisLock::FLAG_CATCH_EXCEPTIONS);
+    $Lock = new RedisLock($Redis, 'Lock_'.$key, RedisLock::FLAG_DO_NOT_THROW_EXCEPTIONS);
 
     // Acquire lock for 2 sec.
     // If lock has acquired in another thread then we will wait 3 second,
@@ -102,14 +102,14 @@ Create a new instance of RedisLock.
 1. RedisClient **$Redis** - Instanse of [RedisClient](https://github.com/cheprasov/php-redis-client)
 2. string **$key** - name of key in Redis storage. Only locks with the same name will compete with each other for lock.
 3. int **$flags**, default = 0
-   * `RedisLock::FLAG_CATCH_EXCEPTIONS` - use this flag, if you don't want catch exceptions by yourself. Do not use this flag, if you want have a full control on situation with locks. Default behavior without this flag - all Exceptions will be thrown.
+   * `RedisLock::FLAG_DO_NOT_THROW_EXCEPTIONS` - use this flag, if you don't want catch exceptions by yourself. Do not use this flag, if you want have a full control on situation with locks. Default behavior without this flag - all Exceptions will be thrown.
 
 ##### Example
 
 ```php
 $Lock = new RedisLock($Redis, 'lockName');
 // or
-$Lock = new RedisLock($Redis, 'lockName', RedisLock::FLAG_CATCH_EXCEPTIONS);
+$Lock = new RedisLock($Redis, 'lockName', RedisLock::FLAG_DO_NOT_THROW_EXCEPTIONS);
 
 ```
 
@@ -117,7 +117,7 @@ $Lock = new RedisLock($Redis, 'lockName', RedisLock::FLAG_CATCH_EXCEPTIONS);
 ---
 Try to acquire lock for `$lockTime` seconds.
 If lock has acquired in another thread then we will wait `$waitTime` seconds, until another thread release the lock.
-Otherwise method throws a exception (if `FLAG_CATCH_EXCEPTIONS` is not set) or result.
+Otherwise method throws a exception (if `FLAG_DO_NOT_THROW_EXCEPTIONS` is not set) or result.
 Returns `true` on success or `false` on failure.
 
 ##### Method Pameters

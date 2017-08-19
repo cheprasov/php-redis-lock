@@ -113,7 +113,7 @@ class RedisLockTest extends \PHPUnit_Framework_TestCase {
 
     public function test_RedisLock_WithoutExceptions() {
         $key = static::TEST_KEY;
-        $RedisLock = new RedisLock(static::$Redis, $key, RedisLock::FLAG_CATCH_EXCEPTIONS);
+        $RedisLock = new RedisLock(static::$Redis, $key, RedisLock::FLAG_DO_NOT_THROW_EXCEPTIONS);
 
         $this->assertFalse($RedisLock->acquire(RedisLock::LOCK_MIN_TIME * 0.9));
         $this->assertTrue($RedisLock->acquire(self::LOCK_MIN_TIME * 2));
