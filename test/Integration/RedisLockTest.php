@@ -22,8 +22,7 @@ class RedisLockTest extends \PHPUnit_Framework_TestCase {
 
     const TEST_KEY = 'redisLockTestKey';
 
-    const LOCK_MIN_TIME = 0.05
-    ;
+    const LOCK_MIN_TIME = 0.05;
 
     /**
      * @var RedisClient
@@ -32,7 +31,8 @@ class RedisLockTest extends \PHPUnit_Framework_TestCase {
 
     public static function setUpBeforeClass() {
         static::$Redis = ClientFactory::create([
-            'server' => REDIS_TEST_SERVER
+            'server' => REDIS_TEST_SERVER,
+            'version' => '3.2.8',
         ]);
     }
 

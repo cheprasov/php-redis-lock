@@ -24,7 +24,8 @@ class RedisLockParallelTest extends \PHPUnit_Framework_TestCase {
 
     protected function getRedis() {
         return ClientFactory::create([
-            'server' => REDIS_TEST_SERVER
+            'server' => REDIS_TEST_SERVER,
+            'version' => '3.2.8',
         ]);
     }
 
