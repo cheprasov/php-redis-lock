@@ -129,7 +129,7 @@ class RedisLock implements LockInterface {
      * @return string
      */
     protected function createToken() {
-        return posix_getpid() .':'. microtime() .':'. mt_rand(1, 9999);
+        return getmypid() .':'. microtime() .':'. mt_rand(1, 9999);
     }
 
     /**
