@@ -2,7 +2,7 @@
 [![Latest Stable Version](https://poser.pugx.org/cheprasov/php-redis-lock/v/stable)](https://packagist.org/packages/cheprasov/php-redis-lock)
 [![Total Downloads](https://poser.pugx.org/cheprasov/php-redis-lock/downloads)](https://packagist.org/packages/cheprasov/php-redis-lock)
 
-# RedisLock v1.0.2 for PHP >= 5.5
+# RedisLock v1.0.3 for PHP >= 5.5
 
 ## About
 RedisLock for PHP is a synchronization mechanism for enforcing limits on access to a resource in an environment where there are many threads of execution. A lock is designed to enforce a mutual exclusion concurrency control policy. Based on [redis](http://redis.io/).

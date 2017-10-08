@@ -1,6 +1,6 @@
 {
   "name": "cheprasov/php-redis-lock",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "RedisLock for PHP is a synchronization mechanism for enforcing limits on access to a resource in an environment where there are many threads of execution. A lock is designed to enforce a mutual exclusion concurrency control policy.",
   "homepage": "http://github.com/cheprasov/php-redis-lock",
   "minimum-stability": "stable",
@@ -8,7 +8,7 @@
   "authors": [
     {
       "name": "Alexander Cheprasov",
-      "email": "cheprasov.84@ya.ru"
+      "email": "acheprasov84@gmail.com"
     }
   ],
   "autoload": {
