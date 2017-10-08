@@ -3,7 +3,7 @@
  * This file is part of RedisLock.
  * git: https://github.com/cheprasov/php-redis-lock
  *
- * (C) Alexander Cheprasov <cheprasov.84@ya.ru>
+ * (C) Alexander Cheprasov <acheprasov84@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -19,7 +19,7 @@ use RedisLock\Exception\LostLockException;
 
 class RedisLock implements LockInterface {
 
-    const VERSION = '1.0.1';
+    const VERSION = '1.0.3';
 
     /**
      * @deprecated
@@ -105,7 +105,7 @@ class RedisLock implements LockInterface {
         $this->flags = (int) $flags;
 
         $this->token = $this->createToken();
-        $this->catchExceptions = $this->isFlagExist(self::FLAG_CATCH_EXCEPTIONS);
+        $this->catchExceptions = $this->isFlagExist(self::FLAG_DO_NOT_THROW_EXCEPTIONS);
     }
 
     /**
@@ -129,7 +129,7 @@ class RedisLock implements LockInterface {
      * @return string
      */
     protected function createToken() {
-        return posix_getpid() .':'. microtime() .':'. mt_rand(1, 9999);
+        return getmypid() .':'. microtime() .':'. mt_rand(1, 9999);
     }
 
     /**
