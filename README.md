@@ -182,6 +182,11 @@ and add dependency to your project:
 To run tests type in console:
 
     ./vendor/bin/phpunit
+	
+## Dependencies
+
+Depending on your PHP version you will need to install Posix library.
+Check php-posix or php-process
 
 ## Something doesn't work
 
